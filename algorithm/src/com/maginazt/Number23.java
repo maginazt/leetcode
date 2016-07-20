@@ -14,34 +14,45 @@ public class Number23 {
         if(lists.length == 1)
             return lists[0];
         //loser tree implementation
-        //leaf node stores the index of lists
         //none leaf node stores the index of leaf node(i.e. the loser)
         //root node index is 1
         //index of 0 stores the winner index of leaf node
-        int[] ltree = new int[2*lists.length];
-        //the first leaf node is at index lists.length
-        for(int i=0;i<lists.length;i++)
-            ltree[i+lists.length] = i;
+        int[] ltree = new int[lists.length];
         //initialize none leaf nodes
-        for(int i=ltree.length-1;i>=lists.length;i--){
+        for(int i=0;i<ltree.length;i++)
+            ltree[i] = -1;
+        for(int i=lists.length-1;i>=0;i--){
             traceLoser(ltree, i, lists);
         }
-
-        return null;
+        //do merge
+        ListNode head = null;
+        ListNode tail = null;
+        while(lists[ltree[0]] != null){
+            if(head == null){
+                head = lists[ltree[0]];
+                tail = head;
+            }
+            else{
+                tail.next = lists[ltree[0]];
+                tail = tail.next;
+            }
+            lists[ltree[0]] = lists[ltree[0]].next;
+            traceLoser(ltree, ltree[0], lists);
+        }
+        return head;
     }
 
     private void traceLoser(int[] ltree, int leafIndex, ListNode[] lists) {
         int currentWinner = leafIndex;
-        int parentIndex = leafIndex/2;
+        int parentIndex = (leafIndex + ltree.length)/2;
         while (parentIndex != 0){
-            //initialize
-            if(ltree[parentIndex] == 0){
+            if(ltree[parentIndex] < 0){
                 ltree[parentIndex] = currentWinner;
                 break;
             }
             else{
                 //current winner loses, change it
-                if(lists[ltree[currentWinner]].val > lists[ltree[ltree[parentIndex]]].val){
+                if(lists[currentWinner] == null || (lists[ltree[parentIndex]] != null && lists[currentWinner].val >= lists[ltree[parentIndex]].val)){
                     int tmp = currentWinner;
                     currentWinner = ltree[parentIndex];
                     ltree[parentIndex] = tmp;
@@ -50,9 +61,17 @@ public class Number23 {
                 parentIndex /= 2;
             }
         }
-        if(parentIndex == 0){
+        if(parentIndex == 0)
             ltree[0] = currentWinner;
+    }
+
+    public static void printList(ListNode head){
+        ListNode p = head;
+        while (p!=null){
+            System.out.print(p.val + ", ");
+            p = p.next;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -65,7 +84,7 @@ public class Number23 {
         ListNode l3 = new ListNode(8);
         l3.next = new ListNode(9);
         l3.next.next = new ListNode(10);
-        new Number23().mergeKLists(new ListNode[]{l1, l2, l3});
+        printList(new Number23().mergeKLists(new ListNode[]{l1, l2, l3}));
     }
 }
 class ListNode {
