@@ -65,15 +65,6 @@ public class Number23 {
             ltree[0] = currentWinner;
     }
 
-    public static void printList(ListNode head){
-        ListNode p = head;
-        while (p!=null){
-            System.out.print(p.val + ", ");
-            p = p.next;
-        }
-        System.out.println();
-    }
-
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
         l1.next = new ListNode(3);
@@ -84,11 +75,20 @@ public class Number23 {
         ListNode l3 = new ListNode(8);
         l3.next = new ListNode(9);
         l3.next.next = new ListNode(10);
-        printList(new Number23().mergeKLists(new ListNode[]{l1, l2, l3}));
+        ListNode.printList(new Number23().mergeKLists(new ListNode[]{l1, l2, l3}));
     }
 }
 class ListNode {
     int val;
     ListNode next;
     ListNode(int x) { val = x; }
+
+    static void printList(ListNode head){
+        ListNode p = head;
+        while (p!=null){
+            System.out.print(p.val + ", ");
+            p = p.next;
+        }
+        System.out.println();
+    }
 }
