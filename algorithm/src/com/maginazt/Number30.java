@@ -1,6 +1,9 @@
 package com.maginazt;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/7/21.
@@ -107,33 +110,53 @@ public class Number30 {
 //    }
 
     public List<Integer> findSubstring(String s, String[] words) {
-        List<Integer> res = new ArrayList<>();
-        if (s == null || words == null || words.length == 0) return res;
-        int len = words[0].length(); // length of each word
+        List<Integer> res = new LinkedList<>();
+        if (words.length == 0 || s.length() < words.length * words[0].length())
+            return res;
+        int targetStrLen = s.length(), wordNumber = words.length, wordLength = words[0].length();
+        Map<String, Integer> map = new HashMap<>(), curMap = new HashMap<>();
+        for (String word : words) {
+            if (map.containsKey(word))
+                map.put(word, map.get(word) + 1);
+            else
+                map.put(word, 1);
+        }
+        String str = null, tmp = null;
+        for (int i = 0; i < wordLength; i++) {
+            int count = 0;  // remark: reset count
+            for (int l = i, r = i; r + wordLength <= targetStrLen; r += wordLength) {
+                str = s.substring(r, r + wordLength);
+                if (map.containsKey(str)) {
+                    if (curMap.containsKey(str)) curMap.put(str, curMap.get(str) + 1);
+                    else curMap.put(str, 1);
 
-        Map<String, Integer> map = new HashMap<>(); // map for words
-        for (String w : words) map.put(w, map.containsKey(w) ? map.get(w) + 1 : 1);
-
-        for (int i = 0; i <= s.length() - len * words.length; i++) {
-            Map<String, Integer> copy = new HashMap<>(map);
-            for (int j = 0; j < words.length; j++) { // checkc if match
-                String str = s.substring(i + j*len, i + j*len + len); // next word
-                if (copy.containsKey(str)) { // is in remaining words
-                    int count = copy.get(str);
-                    if (count == 1) copy.remove(str);
-                    else copy.put(str, count - 1);
-                    if (copy.isEmpty()) { // matches
-                        res.add(i);
-                        break;
+                    if (curMap.get(str) <= map.get(str)) count++;
+                    while (curMap.get(str) > map.get(str)) {
+                        tmp = s.substring(l, l + wordLength);
+                        curMap.put(tmp, curMap.get(tmp) - 1);
+                        l += wordLength;
+                        if (curMap.get(tmp) < map.get(tmp)) count--;
                     }
-                } else break; // not in words
+                    if (count == wordNumber) {
+                        res.add(l);
+                        tmp = s.substring(l, l + wordLength);
+                        curMap.put(tmp, curMap.get(tmp) - 1);
+                        l += wordLength;
+                        count--;
+                    }
+                } else {
+                    curMap.clear();
+                    count = 0;
+                    l = r + wordLength;
+                }
             }
+            curMap.clear();
         }
         return res;
     }
 
     public static void main(String[] args) {
-//        System.out.println(new Number30().findSubstring("wordgoodgoodgoodbestword", new String[]{"word", "good", "best", "good"}));
-        System.out.println(new Number30().findSubstring("aaaaa", new String[]{"a", "a"}));
+        System.out.println(new Number30().findSubstring("wordgoodgoodgoodbestword", new String[]{"word", "good", "best", "good"}));
+//        System.out.println(new Number30().findSubstring("aaaaa", new String[]{"a", "a"}));
     }
 }
