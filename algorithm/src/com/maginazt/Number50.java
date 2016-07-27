@@ -10,19 +10,28 @@ public class Number50 {
             return 1;
         if(x == 1.0)
             return x;
-        if(n < 0)
-            return 1 / myPow(x, -n);
         return pow(x, n);
     }
 
     private double pow(double x, int n) {
         if(n == 1)
             return x;
+        if(n == -1)
+            return 1 / x;
         double sub = pow(x, n/2);
-        return sub * sub * (n % 2 == 1 ? x : 1);
+        double tail = 1;
+        switch (n%2){
+            case 1:
+                tail = x;
+                break;
+            case -1:
+                tail = 1 / x;
+                break;
+        }
+        return sub * sub * tail;
     }
 
     public static void main(String[] args) {
-        System.out.println(new Number50().myPow(3.3, 5));
+        System.out.println(new Number50().myPow(34.00515, -3));
     }
 }
