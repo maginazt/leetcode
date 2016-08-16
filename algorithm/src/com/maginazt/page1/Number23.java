@@ -1,5 +1,7 @@
 package com.maginazt.page1;
 
+import com.maginazt.common.ListNode;
+
 /**
  * Created by Administrator on 2016/7/20.
  */
@@ -76,19 +78,5 @@ public class Number23 {
         l3.next = new ListNode(9);
         l3.next.next = new ListNode(10);
         ListNode.printList(new Number23().mergeKLists(new ListNode[]{l1, l2, l3}));
-    }
-}
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-
-    static void printList(ListNode head){
-        ListNode p = head;
-        while (p!=null){
-            System.out.print(p.val + ", ");
-            p = p.next;
-        }
-        System.out.println();
     }
 }

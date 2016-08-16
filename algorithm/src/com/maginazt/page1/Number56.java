@@ -1,5 +1,7 @@
 package com.maginazt.page1;
 
+import com.maginazt.common.Interval;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -48,25 +50,5 @@ public class Number56 {
         intervals.add(new Interval(8,10));
         intervals.add(new Interval(15,18));
         System.out.println(new Number56().merge(intervals));
-    }
-}
-
-class Interval {
-    int start;
-    int end;
-
-    Interval() {
-        start = 0;
-        end = 0;
-    }
-
-    Interval(int s, int e) {
-        start = s;
-        end = e;
-    }
-
-    @Override
-    public String toString() {
-        return "["+start+","+end+"]";
     }
 }

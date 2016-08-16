@@ -1,8 +1,8 @@
 package com.maginazt.page1;
 
+import com.maginazt.common.TreeNode;
+
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -69,41 +69,5 @@ public class Number95 {
 //        r.right.right = new TreeNode(3);
 //        System.out.println(r.toString());
         System.out.println(new Number95().generateTrees(3));
-    }
-}
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x; }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder("[");
-        Deque<TreeNode> queue = new LinkedList<>();
-        queue.addLast(this);
-        while(!allNull(queue)){
-            TreeNode node = queue.pollFirst();
-            if(node != null){
-                sb.append(node.val).append(",");
-                queue.addLast(node.left);
-                queue.addLast(node.right);
-            }
-            else
-                sb.append("null,");
-        }
-        sb.deleteCharAt(sb.length()-1);
-        sb.append("]");
-        return sb.toString();
-    }
-
-    private boolean allNull(Deque<TreeNode> queue) {
-        if(queue.isEmpty())
-            return true;
-        for(TreeNode node : queue){
-            if(node != null)
-                return false;
-        }
-        return true;
     }
 }
