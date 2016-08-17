@@ -1,5 +1,7 @@
 package com.maginazt.page1;
 
+import com.maginazt.common.ListNode;
+
 /**
  * Created by zhaotao on 16/7/31.
  */

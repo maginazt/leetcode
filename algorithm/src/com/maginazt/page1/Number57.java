@@ -1,5 +1,7 @@
 package com.maginazt.page1;
 
+import com.maginazt.common.Interval;
+
 import java.util.ArrayList;
 import java.util.List;
 

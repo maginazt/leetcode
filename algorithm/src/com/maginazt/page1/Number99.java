@@ -1,5 +1,7 @@
 package com.maginazt.page1;
 
+import com.maginazt.common.TreeNode;
+
 import java.util.LinkedList;
 
 /**
