@@ -1,7 +1,5 @@
 package com.maginazt.page3;
 
-import java.util.Arrays;
-
 /**
  * Created by zhaotao on 2016/9/9.
  */
