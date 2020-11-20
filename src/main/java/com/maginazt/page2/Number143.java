@@ -1,6 +1,6 @@
 package com.maginazt.page2;
 
-import com.maginazt.common.ListNode;
+import com.maginazt.structure.ListNode;
 
 import java.util.LinkedList;
 

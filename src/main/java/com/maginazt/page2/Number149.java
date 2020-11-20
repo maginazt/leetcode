@@ -1,6 +1,6 @@
 package com.maginazt.page2;
 
-import com.maginazt.common.Point;
+import com.maginazt.structure.Point;
 
 import java.util.ArrayList;
 import java.util.HashMap;

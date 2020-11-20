@@ -1,6 +1,6 @@
 package com.maginazt.page2;
 
-import com.maginazt.common.RandomListNode;
+import com.maginazt.structure.RandomListNode;
 
 import java.util.HashMap;
 import java.util.LinkedList;

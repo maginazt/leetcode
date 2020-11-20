@@ -1,6 +1,6 @@
 package com.maginazt.page1;
 
-import com.maginazt.common.Interval;
+import com.maginazt.structure.Interval;
 
 import java.util.ArrayList;
 import java.util.Collections;

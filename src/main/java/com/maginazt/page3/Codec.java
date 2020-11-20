@@ -1,6 +1,6 @@
 package com.maginazt.page3;
 
-import com.maginazt.common.TreeNode;
+import com.maginazt.structure.TreeNode;
 
 import java.util.LinkedList;
 

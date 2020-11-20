@@ -1,4 +1,4 @@
-package com.maginazt.common;
+package com.maginazt.structure;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.maginazt.common;
+package com.maginazt.structure;
 
 public class Interval {
     public int start;

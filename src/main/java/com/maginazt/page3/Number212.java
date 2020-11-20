@@ -1,6 +1,6 @@
 package com.maginazt.page3;
 
-import com.maginazt.common.TrieNode;
+import com.maginazt.structure.TrieNode;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

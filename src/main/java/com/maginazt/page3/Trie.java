@@ -1,6 +1,6 @@
 package com.maginazt.page3;
 
-import com.maginazt.common.TrieNode;
+import com.maginazt.structure.TrieNode;
 
 /**
  * Created by zhaotao on 2016/9/7.

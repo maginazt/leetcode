@@ -1,4 +1,4 @@
-package com.maginazt.common;
+package com.maginazt.other;
 
 import java.util.Arrays;
 

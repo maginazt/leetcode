@@ -1,6 +1,6 @@
 package com.maginazt.page1;
 
-import com.maginazt.common.ListNode;
+import com.maginazt.structure.ListNode;
 
 /**
  * Created by Administrator on 2016/7/28.

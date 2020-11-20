@@ -1,6 +1,6 @@
 package com.maginazt.page1;
 
-import com.maginazt.common.AssertUtil;
+import com.maginazt.structure.AssertUtil;
 
 /**
  * Created by Administrator on 2016/7/22.

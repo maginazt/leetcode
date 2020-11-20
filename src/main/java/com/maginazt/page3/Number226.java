@@ -1,6 +1,6 @@
 package com.maginazt.page3;
 
-import com.maginazt.common.TreeNode;
+import com.maginazt.structure.TreeNode;
 
 /**
  * Created by zhaotao on 2016/9/19.

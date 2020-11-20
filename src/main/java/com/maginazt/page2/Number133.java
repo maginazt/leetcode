@@ -1,6 +1,6 @@
 package com.maginazt.page2;
 
-import com.maginazt.common.UndirectedGraphNode;
+import com.maginazt.structure.UndirectedGraphNode;
 
 import java.util.HashMap;
 import java.util.LinkedList;

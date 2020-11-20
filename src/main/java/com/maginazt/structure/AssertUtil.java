@@ -1,4 +1,4 @@
-package com.maginazt.common;
+package com.maginazt.structure;
 
 /**
  * Created by zhaotao on 2019/2/24.

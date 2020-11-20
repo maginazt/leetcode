@@ -1,7 +1,7 @@
 package com.maginazt.page2;
 
-import com.maginazt.common.ListNode;
-import com.maginazt.common.TreeNode;
+import com.maginazt.structure.ListNode;
+import com.maginazt.structure.TreeNode;
 
 /**
  * Created by zhaotao on 2016/8/17.
